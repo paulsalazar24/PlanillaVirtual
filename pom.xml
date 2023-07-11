@@ -11,4 +11,13 @@
         <maven.compiler.target>20</maven.compiler.target>
         <exec.mainClass>com.mycompany.planillavirtual.PlanillaVirtual</exec.mainClass>
     </properties>
+    
+<dependencies>
+<dependency>
+    <groupId>com.googlecode.json-simple</groupId>
+    <artifactId>json-simple</artifactId>
+    <version>1.1.1</version>
+</dependency>
+</dependencies>
+
 </project>
