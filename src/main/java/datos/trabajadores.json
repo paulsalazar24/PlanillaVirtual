@@ -1,94 +1,102 @@
-{
-  "trabajadores": [
+[
     {
-      "nombre": "Juan",
-      "apellido": "Pérez",
-      "dni": "12345678",
-      "carga_familiar": "si",
-      "num_carga_familiar": 2,
-      "fecha_inicio": "2022-01-15",
-      "sueldo": 2500
+        "nombre": "Juan",
+        "apellido": "Pérez",
+        "dni": "12345678",
+        "carga_familiar": "si",
+        "num_carga_familiar": 2,
+        "fecha_inicio": "2022-01-15",
+        "sueldo": 2500,
+        "fecha_retiro": "No registra"
     },
     {
-      "nombre": "María",
-      "apellido": "Gómez",
-      "dni": "98765432",
-      "carga_familiar": "no",
-      "num_carga_familiar": 0,
-      "fecha_inicio": "2022-02-01",
-      "sueldo": 2000
+        "nombre": "María",
+        "apellido": "Gómez",
+        "dni": "98765432",
+        "carga_familiar": "no",
+        "num_carga_familiar": 0,
+        "fecha_inicio": "2022-02-01",
+        "sueldo": 2000,
+        "fecha_retiro": "No registra"
     },
     {
-      "nombre": "Carlos",
-      "apellido": "López",
-      "dni": "45678912",
-      "carga_familiar": "si",
-      "num_carga_familiar": 1,
-      "fecha_inicio": "2022-03-10",
-      "sueldo": 3000
+        "nombre": "Carlos",
+        "apellido": "López",
+        "dni": "45678912",
+        "carga_familiar": "si",
+        "num_carga_familiar": 1,
+        "fecha_inicio": "2022-03-10",
+        "sueldo": 3000,
+        "fecha_retiro": "No registra"
     },
     {
-      "nombre": "Ana",
-      "apellido": "Rodríguez",
-      "dni": "32198765",
-      "carga_familiar": "no",
-      "num_carga_familiar": 0,
-      "fecha_inicio": "2022-04-05",
-      "sueldo": 2200
+        "nombre": "Ana",
+        "apellido": "Rodríguez",
+        "dni": "32198765",
+        "carga_familiar": "no",
+        "num_carga_familiar": 0,
+        "fecha_inicio": "2022-04-05",
+        "sueldo": 2200,
+        "fecha_retiro": "No registra"
     },
     {
-      "nombre": "Pedro",
-      "apellido": "Martínez",
-      "dni": "65432198",
-      "carga_familiar": "si",
-      "num_carga_familiar": 3,
-      "fecha_inicio": "2022-05-20",
-      "sueldo": 2700
+        "nombre": "Pedro",
+        "apellido": "Martínez",
+        "dni": "65432198",
+        "carga_familiar": "si",
+        "num_carga_familiar": 3,
+        "fecha_inicio": "2022-05-20",
+        "sueldo": 2700,
+        "fecha_retiro": "No registra"
     },
     {
-      "nombre": "Luisa",
-      "apellido": "Hernández",
-      "dni": "87954632",
-      "carga_familiar": "si",
-      "num_carga_familiar": 2,
-      "fecha_inicio": "2022-06-10",
-      "sueldo": 2500
+        "nombre": "Luisa",
+        "apellido": "Hernández",
+        "dni": "87954632",
+        "carga_familiar": "si",
+        "num_carga_familiar": 2,
+        "fecha_inicio": "2022-06-10",
+        "sueldo": 2500,
+        "fecha_retiro": "No registra"
     },
     {
-      "nombre": "Miguel",
-      "apellido": "Luna",
-      "dni": "23654789",
-      "carga_familiar": "no",
-      "num_carga_familiar": 0,
-      "fecha_inicio": "2022-07-01",
-      "sueldo": 1900
+        "nombre": "Miguel",
+        "apellido": "Luna",
+        "dni": "23654789",
+        "carga_familiar": "no",
+        "num_carga_familiar": 0,
+        "fecha_inicio": "2022-07-01",
+        "sueldo": 1900,
+        "fecha_retiro": "No registra"
     },
     {
-      "nombre": "Sofía",
-      "apellido": "Rojas",
-      "dni": "98742365",
-      "carga_familiar": "no",
-      "num_carga_familiar": 0,
-      "fecha_inicio": "2022-08-15",
-      "sueldo": 2100
+        "nombre": "Sofía",
+        "apellido": "Rojas",
+        "dni": "98742365",
+        "carga_familiar": "no",
+        "num_carga_familiar": 0,
+        "fecha_inicio": "2022-08-15",
+        "sueldo": 2100,
+        "fecha_retiro": "No registra"
     },
     {
-      "nombre": "Daniel",
-      "apellido": "García",
-      "dni": "21569874",
-      "carga_familiar": "si",
-      "num_carga_familiar": 1,
-      "fecha_inicio": "2022-09-10",
-      "sueldo": 2800
+        "nombre": "Daniel",
+        "apellido": "García",
+        "dni": "21569874",
+        "carga_familiar": "si",
+        "num_carga_familiar": 1,
+        "fecha_inicio": "2022-09-10",
+        "sueldo": 2800,
+        "fecha_retiro": "No registra"
     },
     {
-      "nombre": "Laura",
-      "apellido": "Sánchez",
-      "dni": "96587432",
-      "carga_familiar": "no",
-      "num_carga_familiar": 0,
-      "fecha_inicio": "2022-10-05",
-      "sueldo": 2300
+        "nombre": "Laura",
+        "apellido": "Sánchez",
+        "dni": "96587432",
+        "carga_familiar": "no",
+        "num_carga_familiar": 0,
+        "fecha_inicio": "2022-10-05",
+        "sueldo": 2300,
+        "fecha_retiro": "No registra"
     }
-  ]
-}
+]

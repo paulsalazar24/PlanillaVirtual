@@ -18,9 +18,6 @@ public class Trabajador {
     private String fechaInicio;
     private String fechaRetiro;
 
-    // Constructor, getters y setters
-
-    // Método para cargar los trabajadores desde el archivo JSON
     public static List<Trabajador> cargarTrabajadoresDesdeJSON(String rutaArchivo) {
         List<Trabajador> trabajadores = new ArrayList<>();
 
@@ -34,9 +31,9 @@ public class Trabajador {
                 String dni = (String) jsonObj.get("dni");
                 String nombre = (String) jsonObj.get("nombre");
                 String apellido = (String) jsonObj.get("apellido");
-                double sueldo = (double) jsonObj.get("sueldo");
-                String fechaInicio = (String) jsonObj.get("fechaInicio");
-                String fechaRetiro = (String) jsonObj.get("fechaRetiro");
+                double sueldo = Double.parseDouble(jsonObj.get("sueldo").toString());
+                String fechaInicio = (String) jsonObj.get("fecha_inicio");
+                String fechaRetiro = (String) jsonObj.get("fecha_retiro");
 
                 Trabajador trabajador = new Trabajador();
                 trabajador.setDni(dni);
@@ -49,12 +46,13 @@ public class Trabajador {
                 trabajadores.add(trabajador);
             }
         } catch (IOException | ParseException e) {
+            
         }
 
         return trabajadores;
     }
-    // Otros métodos de la clase Trabajador
 
+    
     public void setDni(String dni) {
         this.dni = dni;
     }
@@ -102,10 +100,6 @@ public class Trabajador {
     public String getFechaRetiro() {
         return fechaRetiro;
     }
-
     
-
-
- 
+    
 }
-
