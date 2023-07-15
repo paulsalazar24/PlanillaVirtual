@@ -1,4 +1,3 @@
-
 package com.mycompany.planillavirtual;
 
 import java.io.FileReader;

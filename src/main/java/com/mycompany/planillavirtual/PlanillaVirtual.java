@@ -1,5 +1,6 @@
 package com.mycompany.planillavirtual;
 
+import static com.mycompany.planillavirtual.DetallesTrabajadorHelper.mostrarDetallesTrabajador;
 import java.util.List;
 import java.util.Scanner;
 import java.util.ArrayList;
@@ -18,12 +19,14 @@ public class PlanillaVirtual {
             int opcion = 0;
             
             while (opcion != 4) {
+                System.out.println("<====================>");
                 System.out.println("MENU");
                 System.out.println("1. Planilla");
                 System.out.println("2. Agregar trabajador");
                 System.out.println("3. Búsqueda de trabajador");
                 System.out.println("4. Trabajadores");
                 System.out.print("Ingrese una opción: ");
+              
                 opcion = scanner.nextInt();
                 
                 switch (opcion) {
@@ -137,33 +140,15 @@ public class PlanillaVirtual {
                 System.out.println("Opción inválida.");
         }
     }
-
+    
     public static void mostrarListadoTrabajadores() {
         System.out.println("LISTADO DE TRABAJADORES");
 
         for (Trabajador trabajador : trabajadores) {
-            mostrarDetallesTrabajador(trabajador);
+            DetallesTrabajadorHelper.mostrarDetallesTrabajador(trabajador);
         }
     }
-
-    public static void mostrarDetallesTrabajador(Trabajador trabajador) {
-        System.out.println("DNI: " + trabajador.getDni());
-        System.out.println("Nombre: " + trabajador.getNombre());
-        System.out.println("Apellido: " + trabajador.getApellido());
-        System.out.println("Sueldo: " + trabajador.getSueldo());
-        System.out.println("Descuentos AFP (13%): " + (trabajador.getSueldo() * 0.13));
-        System.out.println("Descuentos seguro salud (9%): " + (trabajador.getSueldo() * 0.09));
-        System.out.println("Descuentos renta quinta (> 4950 desc. 8%): " + (trabajador.getSueldo() > 4950 ? trabajador.getSueldo() * 0.08 : 0));
-        System.out.println("Asignación familiar: 103");
-        double totalDescuento = (trabajador.getSueldo() * 0.13) + (trabajador.getSueldo() * 0.09) + (trabajador.getSueldo() > 4950 ? trabajador.getSueldo() * 0.08 : 0);
-        System.out.println("Total descuento: " + totalDescuento);
-        double montoNeto = trabajador.getSueldo() - totalDescuento;
-        System.out.println("Monto neto: " + montoNeto);
-        System.out.println("Fecha inicio: " + trabajador.getFechaInicio());
-        System.out.println("Fecha retiro: " + trabajador.getFechaRetiro());
-
-        System.out.println("----------------------------------");
-    }
+    
 
     public static Trabajador buscarTrabajadorPorDni(String dni) {
         for (Trabajador trabajador : trabajadores) {
