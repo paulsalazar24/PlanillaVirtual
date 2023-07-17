@@ -87,32 +87,7 @@ public class PlanillaVirtual {
 }
 
     public static void mostrarPlanilla() {
-        Scanner scanner = new Scanner(System.in);
-        System.out.print("Ingrese el DNI del trabajador: ");
-        String dni = scanner.nextLine();
-
-        Trabajador trabajadorEncontrado = buscarTrabajadorPorDni(dni);
-
-        if (trabajadorEncontrado != null) {
-            System.out.println("PLANILLA");
-            System.out.println("Nombre: " + trabajadorEncontrado.getNombre() + " " + trabajadorEncontrado.getApellido());
-            System.out.println("DNI: " + trabajadorEncontrado.getDni());
-            System.out.println("Sueldo: " + trabajadorEncontrado.getSueldo());
-            System.out.println("Descuentos AFP (13%): " + (trabajadorEncontrado.getSueldo() * 0.13));
-            System.out.println("Descuentos seguro salud (9%): " + (trabajadorEncontrado.getSueldo() * 0.09));
-            System.out.println("Descuentos renta quinta (> 4950 desc. 8%): " + (trabajadorEncontrado.getSueldo() > 4950 ? trabajadorEncontrado.getSueldo() * 0.08 : 0));
-            System.out.println("Asignación familiar: 103");
-            double totalDescuento = (trabajadorEncontrado.getSueldo() * 0.13)
-                    + (trabajadorEncontrado.getSueldo() * 0.09)
-                    + (trabajadorEncontrado.getSueldo() > 4950 ? trabajadorEncontrado.getSueldo() * 0.08 : 0);
-            System.out.println("Total descuento: " + totalDescuento);
-            double montoNeto = trabajadorEncontrado.getSueldo() - totalDescuento;
-            System.out.println("Monto neto: " + montoNeto);
-            System.out.println("Fecha inicio: " + trabajadorEncontrado.getFechaInicio());
-            System.out.println("Fecha retiro: " + trabajadorEncontrado.getFechaRetiro());
-        } else {
-            System.out.println("Trabajador no encontrado.");
-        }
+        MostrarPlanilla.mostrarPlanilla();
     }
 
     public static void agregarTrabajador() {
