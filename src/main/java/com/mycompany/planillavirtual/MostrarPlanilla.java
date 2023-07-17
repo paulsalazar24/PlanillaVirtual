@@ -10,7 +10,7 @@ package com.mycompany.planillavirtual;
  */
 import static com.mycompany.planillavirtual.PlanillaVirtual.buscarTrabajadorPorDni;
 import java.util.Scanner;
-
+import java.text.DecimalFormat;
 public class MostrarPlanilla {
     private String dni;
     private String nombre;
@@ -95,24 +95,31 @@ public class MostrarPlanilla {
             System.out.println("Sueldo: " + trabajadorEncontrado.getSueldo());
             double asignacionFamiliar = 103;
             System.out.println("Asignación familiar: " + asignacionFamiliar);
-            System.out.println("<DESCUENTOS>");
-            System.out.println("Descuentos AFP (13%): " + (trabajadorEncontrado.getSueldo() * 0.13));
-            System.out.println("Descuentos seguro salud (9%): " + (trabajadorEncontrado.getSueldo() * 0.09));
-            System.out.println("Descuentos renta quinta (> 4950 desc. 8%): " + (trabajadorEncontrado.getSueldo() > 4950 ? trabajadorEncontrado.getSueldo() * 0.08 : 0));
-            
-            double totalDescuento = (trabajadorEncontrado.getSueldo() * 0.13)
-                    + (trabajadorEncontrado.getSueldo() * 0.09)
-                    + (trabajadorEncontrado.getSueldo() > 4950 ? trabajadorEncontrado.getSueldo() * 0.08 : 0);
             System.out.println("<====================>");
-            System.out.println("Total descuento: " + totalDescuento);
-            double montoNeto = trabajadorEncontrado.getSueldo() - totalDescuento;
+            double totalIngresos = trabajadorEncontrado.getSueldo() + asignacionFamiliar;
+            System.out.println("Total ingresos: " + totalIngresos);
+            System.out.println("<DESCUENTOS>");
+            System.out.println("Descuentos AFP (13%): " + formatDecimal(totalIngresos* 0.13));
+            System.out.println("Descuentos seguro salud (9%): " + formatDecimal(totalIngresos* 0.09));
+            System.out.println("Descuentos renta quinta (> 4950 desc. 8%): " + formatDecimal(totalIngresos > 4950 ? totalIngresos * 0.08 : 0));
+            
+            double totalDescuento = (totalIngresos * 0.13)
+                    + (totalIngresos * 0.09)
+                    + (totalIngresos > 4950 ? totalIngresos * 0.08 : 0);
+            System.out.println("<====================>");
+            System.out.println("Total descuento: " + formatDecimal(totalDescuento));
+            double montoNeto = totalIngresos - totalDescuento;
             System.out.println("<LIQUIDO A COBRAR>");
-            System.out.println("Monto neto: " + montoNeto);
+            System.out.println("Monto neto: " + formatDecimal(montoNeto));
             System.out.println("<====================>");
             System.out.println("Fecha inicio: " + trabajadorEncontrado.getFechaInicio());
             System.out.println("Fecha retiro: " + trabajadorEncontrado.getFechaRetiro());
         } else {
             System.out.println("Trabajador no encontrado.");
         }
+    }
+   private static String formatDecimal(double value) {
+        DecimalFormat decimalFormat = new DecimalFormat("#0.00");
+        return decimalFormat.format(value);
     }
 }
