@@ -93,7 +93,8 @@ public class MostrarPlanilla {
             System.out.println("DNI: " + trabajadorEncontrado.getDni());
             System.out.println("<INGRESOS>");
             System.out.println("Sueldo: " + trabajadorEncontrado.getSueldo());
-            System.out.println("Asignación familiar: 103");
+            double asignacionFamiliar = 103;
+            System.out.println("Asignación familiar: " + asignacionFamiliar);
             System.out.println("<DESCUENTOS>");
             System.out.println("Descuentos AFP (13%): " + (trabajadorEncontrado.getSueldo() * 0.13));
             System.out.println("Descuentos seguro salud (9%): " + (trabajadorEncontrado.getSueldo() * 0.09));
