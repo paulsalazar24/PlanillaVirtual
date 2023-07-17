@@ -24,15 +24,15 @@ public class PlanillaVirtual {
         System.out.print("Ingrese su nombre de usuario: ");
         String nombreUsuario = scanner.nextLine();
         System.out.print("Ingrese su contraseña: ");
-        String contraseña = scanner.nextLine();
+        String password = scanner.nextLine();
 
         // Verificar las credenciales del usuario
-        if (nombreUsuario.equals("admin") && contraseña.equals("admin123")) {
-            usuarioActual = new Usuario(nombreUsuario, contraseña, true);
+        if (nombreUsuario.equals("admin") && password.equals("admin123")) {
+            usuarioActual = new Usuario(nombreUsuario, password, true);
             System.out.println("Bienvenido, " + nombreUsuario + " (Administrador)");
             mostrarMenu();
         } else {
-            Usuario usuarioEncontrado = buscarUsuario(nombreUsuario, contraseña);
+            Usuario usuarioEncontrado = buscarUsuario(nombreUsuario, password);
             if (usuarioEncontrado != null) {
                 usuarioActual = usuarioEncontrado;
                 System.out.println("Bienvenido, " + nombreUsuario);
@@ -209,9 +209,9 @@ public class PlanillaVirtual {
         }
     }
 
-    public static Usuario buscarUsuario(String nombreUsuario, String contraseña) {
+    public static Usuario buscarUsuario(String nombreUsuario, String password) {
         for (Usuario usuario : usuarios) {
-            if (usuario.getNombre().equals(nombreUsuario) && usuario.getContraseña().equals(contraseña)) {
+            if (usuario.getNombre().equals(nombreUsuario) && usuario.getPassword().equals(password)) {
                 return usuario;
             }
         }
@@ -231,12 +231,12 @@ public class PlanillaVirtual {
             System.out.print("Ingrese el nombre de usuario: ");
             String nombreUsuario = scanner.nextLine();
             System.out.print("Ingrese la contraseña: ");
-            String contraseña = scanner.nextLine();
+            String password = scanner.nextLine();
             System.out.print("¿Es administrador? (Sí/No): ");
             String esAdminInput = scanner.nextLine();
             boolean esAdmin = esAdminInput.equalsIgnoreCase("Sí");
 
-            Usuario nuevoUsuario = new Usuario(nombreUsuario, contraseña, esAdmin);
+            Usuario nuevoUsuario = new Usuario(nombreUsuario, password, esAdmin);
             usuarios.add(nuevoUsuario);
 
             System.out.println("¡Felicitaciones! El usuario ha sido creado exitosamente.");
