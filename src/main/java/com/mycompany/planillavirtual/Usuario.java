@@ -39,5 +39,9 @@ public class Usuario {
     public boolean esAdmin() {
         return esAdmin;
     }
+    
+    public static Usuario crearUsuario(String nombreUsuario, String contraseña, boolean esAdmin) {
+        return new Usuario(nombreUsuario, contraseña, esAdmin);
+    }
 
 }
