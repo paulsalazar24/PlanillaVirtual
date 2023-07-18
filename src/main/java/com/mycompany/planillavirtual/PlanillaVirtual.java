@@ -63,7 +63,7 @@ public class PlanillaVirtual {
                 System.out.print("Ingrese una opción: ");
 
                 opcion = scanner.nextInt();
-                scanner.nextLine(); 
+                scanner.nextLine();
                 if (usuarioActual.esAdmin()) {
                     switch (opcion) {
                         case 1 ->
@@ -79,7 +79,7 @@ public class PlanillaVirtual {
                         case 6 -> {
                             usuarioActual = null;
                             System.out.println("Sesión cerrada.");
-                            return; 
+                            return;
                         }
                         default ->
                             System.out.println("Opción inválida.");
@@ -95,7 +95,7 @@ public class PlanillaVirtual {
                         case 6 -> {
                             usuarioActual = null;
                             System.out.println("Sesión cerrada.");
-                            return; 
+                            return;
                         }
                         default ->
                             System.out.println("Opción inválida.");
@@ -121,7 +121,7 @@ public class PlanillaVirtual {
         String apellido = scanner.nextLine();
         System.out.print("Ingrese el sueldo: ");
         double sueldo = scanner.nextDouble();
-        scanner.nextLine(); 
+        scanner.nextLine();
         System.out.print("Ingrese la fecha de inicio: ");
         String fechaInicio = scanner.nextLine();
         System.out.print("Ingrese la fecha de retiro: ");
@@ -202,11 +202,36 @@ public class PlanillaVirtual {
     }
 
     public static void mostrarListadoTrabajadores() {
-        System.out.println("LISTADO DE TRABAJADORES");
-
+        DetallesTrabajadorHelper.imprimirEncabezado();
+        int contador = 1;
         for (Trabajador trabajador : trabajadores) {
-            DetallesTrabajadorHelper.mostrarDetallesTrabajador(trabajador);
+            String[] fila = {
+                String.valueOf(contador),
+                trabajador.getDni(),
+                trabajador.getNombre(),
+                trabajador.getApellido(),
+                "S/." + Double.toString(trabajador.getSueldo()),
+                trabajador.getFechaInicio()
+            };
+            DetallesTrabajadorHelper.imprimirFila(fila);
+            contador++;
         }
+        DetallesTrabajadorHelper.imprimirLinea(6);
+
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("Ingrese el DNI del trabajador para ver la planilla: ");
+        String dniTrabajador = scanner.nextLine();
+
+        Trabajador trabajadorSeleccionado = buscarTrabajadorPorDni(dniTrabajador);
+
+        if (trabajadorSeleccionado == null) {
+            System.out.println("No se encontró un trabajador con ese DNI.");
+            return;
+        }
+
+        DetallesTrabajadorHelper.mostrarDetallesTrabajador(trabajadorSeleccionado);
+
+        System.out.println();
     }
 
     public static Usuario buscarUsuario(String nombreUsuario, String password) {

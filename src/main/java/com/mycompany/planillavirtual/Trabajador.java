@@ -10,12 +10,14 @@ import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
 
 public class Trabajador {
+
     private String dni;
     private String nombre;
     private String apellido;
     private double sueldo;
     private String fechaInicio;
     private String fechaRetiro;
+    private int numCargaFamiliar;
 
     public static List<Trabajador> cargarTrabajadoresDesdeJSON(String rutaArchivo) {
         List<Trabajador> trabajadores = new ArrayList<>();
@@ -33,6 +35,7 @@ public class Trabajador {
                 double sueldo = Double.parseDouble(jsonObj.get("sueldo").toString());
                 String fechaInicio = (String) jsonObj.get("fecha_inicio");
                 String fechaRetiro = (String) jsonObj.get("fecha_retiro");
+                int numCargaFamiliar = Integer.parseInt(jsonObj.get("num_carga_familiar").toString()); 
 
                 Trabajador trabajador = new Trabajador();
                 trabajador.setDni(dni);
@@ -41,17 +44,17 @@ public class Trabajador {
                 trabajador.setSueldo(sueldo);
                 trabajador.setFechaInicio(fechaInicio);
                 trabajador.setFechaRetiro(fechaRetiro);
+                trabajador.setNumCargaFamiliar(numCargaFamiliar); 
 
                 trabajadores.add(trabajador);
             }
         } catch (IOException | ParseException e) {
-            
+
         }
 
         return trabajadores;
     }
 
-    
     public void setDni(String dni) {
         this.dni = dni;
     }
@@ -99,10 +102,13 @@ public class Trabajador {
     public String getFechaRetiro() {
         return fechaRetiro;
     }
-
-    boolean tieneHijos() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    
+    public int getNumCargaFamiliar() {
+        return numCargaFamiliar;
     }
-    
-    
+
+    public void setNumCargaFamiliar(int numCargaFamiliar) {
+        this.numCargaFamiliar = numCargaFamiliar;
+    }
+
 }
