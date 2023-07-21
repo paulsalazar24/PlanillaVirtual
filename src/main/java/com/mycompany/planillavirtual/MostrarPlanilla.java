@@ -8,9 +8,9 @@ package com.mycompany.planillavirtual;
  *
  * @author LENOVO
  */
-import static com.mycompany.planillavirtual.PlanillaVirtual.buscarTrabajadorPorDni;
 import java.util.Scanner;
 import java.text.DecimalFormat;
+import java.util.List;
 
 public class MostrarPlanilla {
 
@@ -78,12 +78,12 @@ public class MostrarPlanilla {
         this.fechaRetiro = fechaRetiro;
     }
 
-    public static void mostrarPlanilla() {
+    public static void mostrarPlanilla(List<Trabajador> trabajadores) {
         Scanner scanner = new Scanner(System.in);
         System.out.print("Ingrese el DNI del trabajador: ");
         String dni = scanner.nextLine();
 
-        Trabajador trabajadorEncontrado = buscarTrabajadorPorDni(dni);
+        Trabajador trabajadorEncontrado = Buscar.buscarTrabajadorPorDni(dni,trabajadores);
 
         if (trabajadorEncontrado != null) {
             System.out.println("<====================>");

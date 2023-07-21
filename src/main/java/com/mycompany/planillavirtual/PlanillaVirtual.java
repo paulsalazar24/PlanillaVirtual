@@ -71,7 +71,7 @@ public class PlanillaVirtual {
                         case 2 ->
                             agregarTrabajador();
                         case 3 ->
-                            buscarTrabajador();
+                            Buscar.buscarTrabajador(trabajadores);
                         case 4 ->
                             mostrarListadoTrabajadores();
                         case 5 ->
@@ -89,7 +89,7 @@ public class PlanillaVirtual {
                         case 1 ->
                             mostrarPlanilla();
                         case 3 ->
-                            buscarTrabajador();
+                            Buscar.buscarTrabajador(trabajadores);
                         case 4 ->
                             mostrarListadoTrabajadores();
                         case 6 -> {
@@ -106,7 +106,7 @@ public class PlanillaVirtual {
     }
 
     public static void mostrarPlanilla() {
-        MostrarPlanilla.mostrarPlanilla();
+        MostrarPlanilla.mostrarPlanilla(trabajadores);
     }
 
     public static void agregarTrabajador() {
@@ -138,68 +138,7 @@ public class PlanillaVirtual {
         System.out.println("Trabajador agregado correctamente.");
     }
 
-    public static void buscarTrabajador() {
-        Scanner scanner = new Scanner(System.in);
-        System.out.println("BÚSQUEDA DE TRABAJADOR");
-        System.out.println("1. Buscar por DNI");
-        System.out.println("2. Buscar por nombre");
-        System.out.print("Ingrese una opción: ");
-        int opcion = scanner.nextInt();
-        scanner.nextLine();
-
-        switch (opcion) {
-            case 1 -> {
-                System.out.print("Ingrese el DNI del trabajador: ");
-                String dni = scanner.nextLine();
-
-                Trabajador trabajadorEncontrado = buscarTrabajadorPorDni(dni);
-
-                if (trabajadorEncontrado != null) {
-                    mostrarDetallesTrabajador(trabajadorEncontrado);
-                } else {
-                    System.out.println("Trabajador no encontrado.");
-                }
-            }
-            case 2 -> {
-                System.out.print("Ingrese el nombre del trabajador: ");
-                String nombre = scanner.nextLine();
-
-                List<Trabajador> trabajadoresEncontrados = buscarTrabajadoresPorNombre(nombre);
-
-                if (!trabajadoresEncontrados.isEmpty()) {
-                    System.out.println("Trabajadores encontrados:");
-                    for (Trabajador trabajador : trabajadoresEncontrados) {
-                        mostrarDetallesTrabajador(trabajador);
-                    }
-                } else {
-                    System.out.println("No se encontraron trabajadores con ese nombre.");
-                }
-            }
-            default ->
-                System.out.println("Opción inválida.");
-        }
-    }
-
-    public static Trabajador buscarTrabajadorPorDni(String dni) {
-        for (Trabajador trabajador : trabajadores) {
-            if (trabajador.getDni().equals(dni)) {
-                return trabajador;
-            }
-        }
-        return null;
-    }
-
-    public static List<Trabajador> buscarTrabajadoresPorNombre(String nombre) {
-        List<Trabajador> trabajadoresEncontrados = new ArrayList<>();
-
-        for (Trabajador trabajador : trabajadores) {
-            if (trabajador.getNombre().equalsIgnoreCase(nombre)) {
-                trabajadoresEncontrados.add(trabajador);
-            }
-        }
-
-        return trabajadoresEncontrados;
-    }
+    
 
     public static void mostrarListadoTrabajadores() {
         DetallesTrabajadorHelper.imprimirEncabezado();
@@ -222,7 +161,7 @@ public class PlanillaVirtual {
         System.out.print("Ingrese el DNI del trabajador para ver la planilla: ");
         String dniTrabajador = scanner.nextLine();
 
-        Trabajador trabajadorSeleccionado = buscarTrabajadorPorDni(dniTrabajador);
+        Trabajador trabajadorSeleccionado = Buscar.buscarTrabajadorPorDni(dniTrabajador,trabajadores);
 
         if (trabajadorSeleccionado == null) {
             System.out.println("No se encontró un trabajador con ese DNI.");
