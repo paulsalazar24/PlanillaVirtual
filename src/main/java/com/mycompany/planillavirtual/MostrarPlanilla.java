@@ -93,11 +93,8 @@ public class MostrarPlanilla {
             System.out.println("Nombre: " + trabajadorEncontrado.getNombre() + " " + trabajadorEncontrado.getApellido());
             System.out.println("DNI: " + trabajadorEncontrado.getDni());
 
-            System.out.print("Ingrese el número de cargas familiares: ");
-            int numCargaFamiliar = scanner.nextInt();
-
             double sueldo = trabajadorEncontrado.getSueldo();
-            double asignacionFamiliar = 103 * numCargaFamiliar;
+            double asignacionFamiliar = 103;
             System.out.println("Asignación familiar: " + asignacionFamiliar);
             System.out.println("<INGRESOS>");
             System.out.println("Sueldo: " + sueldo);
