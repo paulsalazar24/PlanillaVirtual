@@ -1,6 +1,5 @@
 package com.mycompany.planillavirtual;
 
-import static com.mycompany.planillavirtual.DetallesTrabajadorHelper.mostrarDetallesTrabajador;
 import java.util.List;
 import java.util.Scanner;
 import java.util.ArrayList;
